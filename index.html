@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text-to-Speech API</title>
+</head>
+<body>
+    <h1>Text-to-Speech API by Dafa!</h1>
+    <form id="textToSpeechForm">
+        <label for="inputText">Enter Text:</label>
+        <textarea id="inputText" name="text" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Submit"><br><br> <!-- Add line break here -->
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('textToSpeechForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const inputText = document.getElementById('inputText').value;
+
+            // Send the user input to your server for text-to-speech processing.
+            fetch('/synthesize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ text: inputText }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the result as a clickable link.
+                const resultDiv = document.getElementById('result');
+                const link = document.createElement('a');
+                link.href = data.url;
+                link.textContent = 'Click here to listen';
+                link.target = '_blank'; // Open in a new tab/window
+                resultDiv.innerHTML = ''; // Clear any previous content
+                resultDiv.appendChild(link);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
