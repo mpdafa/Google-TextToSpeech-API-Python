@@ -1,4 +1,5 @@
 # Google-TextToSpeech-API-Python
+Deployment Method : Google Cloud Run
 
 Command on gcloud SDK : 
 
