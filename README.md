@@ -3,8 +3,8 @@
 Command on gcloud SDK : 
 
 gcloud auth login
-gcloud config set project text-to-speech-400912
-gcloud services enable run.googleapis.com
+gcloud config set project text-to-speech-400912 /n
+gcloud services enable run.googleapis.com /n
 gcloud services enable containerregistry.googleapis.com
 gcloud services enable cloudbuild.googleapis.com
 gcloud services enable storage-component.googleapis.com
