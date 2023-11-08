@@ -3,6 +3,7 @@ Deployment Method : Google Cloud Run
 
 Command on gcloud SDK : 
 
+```
 gcloud auth login
 gcloud config set project text-to-speech-400912    
 gcloud services enable run.googleapis.com   
@@ -14,6 +15,7 @@ gcloud auth configure-docker
 docker build -t gcr.io/text-to-speech-400912/text-to-speech-deploy:v1 .  
 docker push gcr.io/text-to-speech-400912/text-to-speech-deploy:v1  
 gcloud run deploy text-to-speech-deploy --image gcr.io/text-to-speech-400912/text-to-speech-deploy:v1 --region=asia-southeast2 --platform managed --allow-unauthenticated  
+```
 
 ## Public URL
 https://text-to-speech-deploy-velkabsk3q-et.a.run.app/
